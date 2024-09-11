@@ -4,7 +4,7 @@ const FileUploader = ({ handleFileUpload,filename }) => {
     <div className="w-full flex flex-col items-center">
       <label
         htmlFor="uploadFile1"
-        className="bg-white text-gray-500 font-semibold text-base rounded w-full max-w-full h-52 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 border-dashed mx-auto font-sans"
+        className="bg-white text-gray-500 font-semibold text-base rounded w-96 p-6 h-72 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 border-dashed mx-auto font-sans"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

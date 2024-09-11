@@ -38,22 +38,22 @@ const Main = () => {
         </div>
 
         <div>
-          <TabbedCharts />
+          <TabbedCharts data={data}/>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
           {data ? (
             <>
               <ChartDisplay data={data} chartType={chartType} />
-              {/* <MUIChart data={data} />
+              <MUIChart data={data} />
               <RechartComponent data={data} />
               <D3Chart data={data} />
-              <AGChart data={data} /> */}
-              {/* <AGChart data={data} chartType={chartType}/>  */}
+              <AGChart data={data} /> 
+              <AGChart data={data} chartType={chartType}/> 
             </>
           ) : (
             <p className="text-center text-gray-600">No data uploaded yet.</p>
           )}
-        </div>
+        </div> */}
       </div>
 
       <div className="fixed bottom-4 right-4 z-50">
