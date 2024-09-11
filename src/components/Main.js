@@ -1,13 +1,13 @@
 "use client";
-
 import { useState } from "react";
 import UploadSection from "./UploadSection";
 import ChartDisplay from "./ChartDisplay";
 import DownloadJson from "./DownloadJson";
-import MUIChart from "./charts/MuiChart";
-import RechartComponent from "./charts/RechartComponent";
-import D3Chart from "./charts/D3Chart";
-import AGChart from "./charts/AgCharts";
+import TabbedCharts from "./Tabs";
+// import MUIChart from "./charts/MuiChart";
+// import RechartComponent from "./charts/RechartComponent";
+// import D3Chart from "./charts/D3Chart";
+// import AGChart from "./charts/AgCharts";
 
 const Main = () => {
   const [data, setData] = useState(null);
@@ -37,14 +37,18 @@ const Main = () => {
           </div>
         </div>
 
+        <div>
+          <TabbedCharts />
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
           {data ? (
             <>
               <ChartDisplay data={data} chartType={chartType} />
-              <MUIChart data={data} />
+              {/* <MUIChart data={data} />
               <RechartComponent data={data} />
               <D3Chart data={data} />
-              <AGChart data={data} />
+              <AGChart data={data} /> */}
+              {/* <AGChart data={data} chartType={chartType}/>  */}
             </>
           ) : (
             <p className="text-center text-gray-600">No data uploaded yet.</p>
