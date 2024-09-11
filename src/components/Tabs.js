@@ -59,9 +59,9 @@ const TabbedCharts = () => {
         </button>
       </div>
 
-      <div className="p-4 bg-white shadow-md rounded-lg">
+      {/* <div className="p-4 bg-white shadow-md rounded-lg">
         {renderChart()}
-      </div>
+      </div> */}
     </div>
   );
 };
