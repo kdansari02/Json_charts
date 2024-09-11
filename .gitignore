@@ -1,1 +1,35 @@
+# Node modules
 node_modules/
+
+# Next.js build output
+.next/
+
+# Output of npm pack
+*.tgz
+
+# Production environment variables
+.env.production
+
+# Local environment variables
+.env.local
+
+# Logs
+*.log
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Dependency directories
+jspm_packages/
+
+# Testing
+coverage/
+*.lcov
+
+# Build directories
+out/
