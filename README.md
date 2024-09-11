@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Chart Maker Application
 
-## Getting Started
+This is a React-based project built using Next.js, allowing users to upload JSON files and display various types of charts such as Bar, Line, Pie, Doughnut, Radar, and Polar Area. Users can select the type of chart to display, upload their own JSON data, and view the charts dynamically.
 
-First, run the development server:
+## Table of Contents
+Overview
+Technologies Used
+Installation
+Usage
+Features
+File Structure
+License
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Overview
+The Chart Maker Application allows you to visualize your data in different chart types by simply uploading a JSON file. The data from the JSON file is processed and displayed dynamically using chart libraries like Chart.js, AG Charts, and Recharts.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Users can select the chart type from a sidebar menu, upload a JSON file, and see their data presented in a clean, responsive design.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Technologies Used
+React with Next.js
+Tailwind CSS for styling
+Chart.js, Recharts, MUI X Charts, D3.js Charts, AG Charts React for charting
+JavaScript (ES6+)
+Git & GitHub for version control
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Features
+Responsive Design: The application adapts to different screen sizes for a seamless user experience.
+Multiple Chart Types: Select from Bar, Line, Pie, Doughnut, Radar, and Polar Area charts.
+JSON Data Upload: Easily upload your JSON data and view charts dynamically.
+Download Functionality: Allows you to download the data in JSON format after upload.
+Interactive Sidebar: Select the chart type from an easy-to-use sidebar.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
