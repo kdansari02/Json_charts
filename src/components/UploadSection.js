@@ -22,7 +22,16 @@ const UploadSection = ({ onFileUpload, chartType, setChartType }) => {
 
   return (
     <div className="flex flex-col items-center py-2 px-4 bg-gray-100 rounded-lg shadow-md animate-fadeIn"
-    style={{width:"100%"}}
+    style={{
+      width:"100%",
+      background: "rgba( 255, 255, 255, 0.3)",
+      boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+      backdropFilter: "blur( 8.5px )",
+      webkitBackdropFilter: "blur( 8.5px )",
+      borderRadius: "10px",
+      border: "1px solid rgba( 255, 255, 255, 0.18 )"
+
+    }}
     >
       {/* <div className="mb-4">
         <ChartTypeSelector chartType={chartType} setChartType={setChartType} />

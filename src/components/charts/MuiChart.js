@@ -39,12 +39,16 @@ const MUIChart = ({ data, chartType }) => {
       )}
       {chartType === "pie" && (
         <PieChart
-          series={chartData.series}
-          height={290}
-          margin={{ top: 10, bottom: 30, left: 40, right: 10 }}
+        series={[
+          {
+            data:data.data
+          },
+        ]}
+        width={400}
+        height={200}
         />
       )}
-      {chartType === "doughnut" && (
+      {/* {chartType === "doughnut" && (
         <DoughnutChart
           series={chartData.series}
           height={290}
@@ -59,14 +63,14 @@ const MUIChart = ({ data, chartType }) => {
           height={290}
           margin={{ top: 10, bottom: 30, left: 40, right: 10 }}
         />
-      )}
-      {chartType === "polar" && (
+      )} */}
+      {/* {chartType === "polar" && (
         <PolarAreaChart
           series={chartData.series}
           height={290}
           margin={{ top: 10, bottom: 30, left: 40, right: 10 }}
         />
-      )}
+      )} */}
     </div>
   );
 };

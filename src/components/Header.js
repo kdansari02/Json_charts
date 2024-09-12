@@ -10,8 +10,19 @@ const Header = () => {
   };
 
   return (
-    <header className="flex shadow-lg py-4 px-4 sm:px-10 bg-white font-sans min-h-[70px] tracking-wide relative z-50">
-      <div className="flex flex-wrap items-center justify-between gap-4 w-full">
+    <header className="fixed top-0 flex w-full shadow-lg py-4 px-4 sm:px-10 bg-white font-sans tracking-wide z-40"
+    style={{
+      background: "rgba( 255, 255, 255, 0.3)",
+      boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+      backdropFilter: "blur( 8.5px )",
+      webkitBackdropFilter: "blur( 8.5px )",
+      borderRadius: "10px",
+      border: "1px solid rgba( 255, 255, 255, 0.18 )"
+
+    }}
+
+    >
+      <div className=" flex flex-wrap items-center justify-between gap-4 w-full">
      
         <div
         className="w-32"

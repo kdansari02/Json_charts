@@ -1,14 +1,16 @@
 
 const FileUploader = ({ handleFileUpload,filename }) => {
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="w-full flex flex-col items-center"    
+    >
       <label
+       
         htmlFor="uploadFile1"
-        className="bg-white text-gray-500 font-semibold text-base rounded w-96 p-6 h-72 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 border-dashed mx-auto font-sans"
+        className="text-gray-500 font-semibold text-base rounded w-96 p-6 h-72 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 border-dashed mx-auto font-sans"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="w-11 mb-2 fill-gray-500"
+          className="w-11 mb-2 fill-white"
           viewBox="0 0 32 32"
         >
           <path
@@ -18,14 +20,14 @@ const FileUploader = ({ handleFileUpload,filename }) => {
             d="M20.293 19.707a1 1 0 0 0 1.414-1.414l-5-5a1 1 0 0 0-1.414 0l-5 5a1 1 0 0 0 1.414 1.414L15 16.414V29a1 1 0 0 0 2 0V16.414z"
           />
         </svg>
-        <span>Upload file</span>
+        <span className="text-white">Upload file</span>
         <input
           onChange={handleFileUpload}
           type="file"
           id="uploadFile1"
           className="hidden"
         />
-        <p className="text-xs font-medium text-gray-400 mt-2">
+        <p className="text-xs font-medium text-white mt-2">
           Only JSON Files Allowed
         </p>
       </label>

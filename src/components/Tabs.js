@@ -12,7 +12,9 @@ const TabbedCharts = ({data}) => {
 
   return (
     <div className="w-full max-w-4xl mx-auto mt-8">
-      <div className="flex justify-center mb-4 bg-white rounded-3xl overflow-x-auto whitespace-nowrap">
+      <div className="flex justify-center mb-4 bg-white rounded-3xl overflow-x-auto whitespace-nowrap"
+      
+      >
         <button
           onClick={() => setChartType("bar")}
           className={`flex flex-col items-center p-4 min-w-max ${
