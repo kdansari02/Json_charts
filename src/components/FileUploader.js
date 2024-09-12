@@ -33,7 +33,7 @@ const FileUploader = ({ handleFileUpload,filename }) => {
       </label>
 
       {filename && (
-        <p className="text-sm mt-2 text-gray-600 text-center">
+        <p className="text-sm mt-2 text-white text-center">
           Uploaded file: <span className="font-semibold">{filename}</span>
         </p>
       )}

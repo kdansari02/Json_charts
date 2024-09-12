@@ -21,7 +21,7 @@ const Main = () => {
   };
 
   return (
-    <main className="backgroundHome flex flex-col flex-grow p-6 overflow-y-auto scroll-smooth mt-24">
+    <main className="backgroundHome flex flex-col flex-grow p-6 mt-24">
       <div className="w-full max-w-4xl mx-auto">
         <h1 className="text-center text-3xl font-bold mb-8 text-white">
           Upload JSON Data to Display
@@ -38,14 +38,14 @@ const Main = () => {
                 ],
                 autoStart: true,
                 loop: true,
-                delay: 100,
+                delay: 60,
               }}
             />
           </span>
         </h1>
         <div className="w-full gap-6 grid grid-cols-1 md:grid-cols-2 rounded-lg shadow-md animate-fadeIn">
           <div className="flex flex-col justify-center items-center md:items-start text-white">
-            <motion.div
+            {/* <motion.div
               initial="hidden"
               animate="visible"
               variants={cardVariants}
@@ -56,17 +56,17 @@ const Main = () => {
                 damping: 10,
                 delay: 0,
               }}
-            >
+            > */}
               <h1 className="text-2xl font-bold mb-4">Prepare Your Data</h1>
               <p className="text-lg text-white mb-4">
                 Upload your JSON data to start. The data will be validated and
                 processed as you upload it. Ensure that the data adheres to JSON
                 specifications to properly display the charts.
               </p>
-            </motion.div>
+            {/* </motion.div> */}
           </div>
           <div className="flex flex-col items-center md:items-start">
-          <motion.div
+          {/* <motion.div
             initial="hidden"
             animate="visible"
             variants={cardVariants}
@@ -78,13 +78,13 @@ const Main = () => {
               delay: 0,
             }}
             className="flex flex-col items-center md:items-start"
-          >
+          > */}
               <UploadSection
                 onFileUpload={setData}
                 chartType={chartType}
                 setChartType={setChartType}
               />
-            </motion.div>
+            {/* </motion.div> */}
           </div>
         </div>
 
