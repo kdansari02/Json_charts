@@ -66,6 +66,7 @@ const ChartDisplay = ({ data, chartType }) => {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+      Chart.js
       <canvas ref={chartRef} />
     </div>
   );

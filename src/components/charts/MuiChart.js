@@ -35,6 +35,7 @@ const MUIChart = ({ data, chartType }) => {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+      Mui Chart
       {chartType === "bar" && (
         <BarChart
           series={chartData.series}
@@ -64,29 +65,6 @@ const MUIChart = ({ data, chartType }) => {
           height={200}
         />
       )}
-      {/* {chartType === "doughnut" && (
-        <DoughnutChart
-          series={chartData.series}
-          height={290}
-          margin={{ top: 10, bottom: 30, left: 40, right: 10 }}
-        />
-      )}
-      {chartType === "radar" && (
-        <RadarChart
-          series={chartData.series}
-          xAxis={chartData.xAxis}
-          yAxis={chartData.yAxis}
-          height={290}
-          margin={{ top: 10, bottom: 30, left: 40, right: 10 }}
-        />
-      )} */}
-      {/* {chartType === "polar" && (
-        <PolarAreaChart
-          series={chartData.series}
-          height={290}
-          margin={{ top: 10, bottom: 30, left: 40, right: 10 }}
-        />
-      )} */}
     </div>
   );
 };

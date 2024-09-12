@@ -85,12 +85,13 @@ const TabbedCharts = ({ data }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 overflow-auto ">
+      <div className="grid  grid-cols-1 md:grid-cols-2 gap-2 mt-10">
         {data ? (
           <>
             <ChartDisplay data={data} chartType={chartType} />
             <MUIChart data={data} chartType={chartType} />
             <AGChart data={data} chartType={chartType} />
+            <D3Chart data={data} chartType={chartType} />
           </>
         ) : (
           <p className="text-center text-white">No data uploaded yet.</p>

@@ -11,12 +11,12 @@ const normalizeChartType = (type) => {
     line: "line",
     bar: "bar",
   };
-  return normalizedTypes[type] || "bar"; 
+  return normalizedTypes[type] || "bar";
 };
 
 const AGChart = ({ data, chartType }) => {
   const normalizedChartType = normalizeChartType(chartType);
-console.log("normalizedChartType",normalizedChartType)
+  console.log("normalizedChartType", normalizedChartType);
   const transformedData = data.labels.map((label, index) => ({
     label: label,
     value: data.data[index],
@@ -35,7 +35,8 @@ console.log("normalizedChartType",normalizedChartType)
             calloutLabelKey: "label",
             innerRadiusRatio: normalizedChartType === "donut" ? 0.7 : 0,
           }
-        : normalizedChartType === "radar-area" || normalizedChartType === "radar-line"
+        : normalizedChartType === "radar-area" ||
+          normalizedChartType === "radar-line"
         ? {
             type: normalizedChartType,
             angleKey: "label",
@@ -60,6 +61,7 @@ console.log("normalizedChartType",normalizedChartType)
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+      Ag Charts
       <AgCharts options={options} />
     </div>
   );
