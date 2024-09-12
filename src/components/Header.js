@@ -9,38 +9,33 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const logout = () => {
+    const yes = confirm("Are you sure you want to logout?");
+    if (yes) {
+      sessionStorage.removeItem("isLoggedIn");
+      window.location.reload();
+    }
+  };
+
   return (
-    <header className="fixed top-0 flex w-full shadow-lg py-4 px-4 sm:px-10 bg-white font-sans tracking-wide z-40"
-    style={{
-      background: "rgba( 255, 255, 255, 0.3)",
-      boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
-      backdropFilter: "blur( 8.5px )",
-      webkitBackdropFilter: "blur( 8.5px )",
-      borderRadius: "10px",
-      border: "1px solid rgba( 255, 255, 255, 0.18 )"
-
-    }}
-
+    <header
+      className="fixed top-0 flex w-full shadow-lg py-4 px-4 sm:px-10 bg-white font-sans tracking-wide z-40"
+      style={{
+        background: "rgba( 255, 255, 255, 0.3)",
+        // boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+        backdropFilter: "blur( 8.5px )",
+        webkitBackdropFilter: "blur( 8.5px )",
+        borderRadius: "10px",
+        border: "1px solid rgba( 255, 255, 255, 0.18 )",
+      }}
     >
       <div className=" flex flex-wrap items-center justify-between gap-4 w-full">
-     
-        <div
-        className="w-32"
-        >
-          <img
-            src="https://www.vectorlogo.zone/logos/json/json-ar21.svg"
-            alt="logo"
-            className="w-36"
-          />
-        </div>
-
         {/* Desktop & Mobile Menu */}
         <div
           className={`${
             isMenuOpen ? "block" : "hidden"
           } lg:flex lg:items-center lg:gap-x-5 fixed lg:static top-0 left-0 w-2/3 sm:w-1/2 bg-white lg:bg-transparent shadow-lg lg:shadow-none z-50 h-full lg:h-auto transition-all ease-in-out duration-300`}
-        >
-        </div>
+        ></div>
 
         {/* Mobile Menu Toggle (Close) */}
         {isMenuOpen && (
@@ -61,21 +56,15 @@ const Header = () => {
 
         {/* Login/SignUp & Mobile Menu Toggle (Open) */}
         <div className="flex items-center ml-auto space-x-6">
-          <button className="font-semibold text-[15px] border-none outline-none">
-            <a href="#" className="text-[#007bff] hover:underline">
-              Login
-            </a>
-          </button>
-          <button className="px-4 py-2 text-sm rounded-sm font-bold text-white border-2 border-[#007bff] bg-[#007bff] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]">
-            Sign up
+          <button
+            onClick={logout}
+            className="px-4 py-2 text-sm rounded-sm font-bold text-white border-2 border-[#007bff] bg-[#007bff] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]"
+          >
+            Logout
           </button>
 
           {/* Mobile Menu Toggle Button */}
-          <button
-            id="toggleOpen"
-            onClick={toggleMenu}
-            className="lg:hidden"
-          >
+          <button id="toggleOpen" onClick={toggleMenu} className="lg:hidden">
             <svg
               className="w-7 h-7"
               fill="#333"

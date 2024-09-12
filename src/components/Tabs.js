@@ -6,15 +6,15 @@ import { PiChartPolarDuotone } from "react-icons/pi";
 import ChartDisplay from "./ChartDisplay";
 import MUIChart from "./charts/MuiChart";
 import AGChart from "./charts/AgCharts";
+import RechartComponent from "./charts/RechartComponent";
+import D3Chart from "./charts/D3Chart";
 
-const TabbedCharts = ({data}) => {
+const TabbedCharts = ({ data }) => {
   const [chartType, setChartType] = useState("bar");
 
   return (
     <div className="w-full max-w-4xl mx-auto mt-8">
-      <div className="flex justify-center mb-4 bg-white rounded-3xl overflow-x-auto whitespace-nowrap"
-      
-      >
+      <div className="flex justify-center mb-4 bg-white rounded-3xl overflow-x-auto whitespace-nowrap">
         <button
           onClick={() => setChartType("bar")}
           className={`flex flex-col items-center p-4 min-w-max ${
@@ -83,19 +83,19 @@ const TabbedCharts = ({data}) => {
         </button>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-          {data ? (
-            <>
+        {data ? (
+          <>
             <ChartDisplay data={data} chartType={chartType} />
-             <MUIChart data={data} chartType={chartType}/>
-             <AGChart data={data} chartType={chartType}/> 
-              {/* <RechartComponent data={data} />
-              <D3Chart data={data} />
-         <AGChart data={data} chartType={chartType}/>   */}
-            </>
-          ) : (
-            <p className="text-center text-gray-600">No data uploaded yet.</p>
-          )}
-        </div>
+            <MUIChart data={data} chartType={chartType} />
+            <AGChart data={data} chartType={chartType} />
+            {/* <RechartComponent data={data} />
+            <D3Chart data={data} /> */}
+            {/* <AGChart data={data} chartType={chartType} /> */}
+          </>
+        ) : (
+          <p className="text-center text-gray-600">No data uploaded yet.</p>
+        )}
+      </div>
     </div>
   );
 };

@@ -1,5 +1,12 @@
-import React from 'react';
-import { BarChart, LineChart, PieChart, DoughnutChart, RadarChart, PolarAreaChart } from '@mui/x-charts';
+import React from "react";
+import {
+  BarChart,
+  LineChart,
+  PieChart,
+  DoughnutChart,
+  RadarChart,
+  PolarAreaChart,
+} from "@mui/x-charts";
 
 const MUIChart = ({ data, chartType }) => {
   const chartData = {
@@ -11,10 +18,19 @@ const MUIChart = ({ data, chartType }) => {
     xAxis: [
       {
         data: data.labels,
-        scaleType: 'band',
+        scaleType: "band",
       },
     ],
-    yAxis: [{ scaleType: 'linear' }],
+    yAxis: [{ scaleType: "linear" }],
+  };
+
+  const formatData = (data) => {
+    return data.map((item) => {
+      return {
+        name: item.name,
+        value: item.value,
+      };
+    });
   };
 
   return (
@@ -37,15 +53,15 @@ const MUIChart = ({ data, chartType }) => {
           margin={{ top: 10, bottom: 30, left: 40, right: 10 }}
         />
       )}
-      {chartType === "pie" && (
+      {chartType === "pie" && data.data && (
         <PieChart
-        series={[
-          {
-            data:data.data
-          },
-        ]}
-        width={400}
-        height={200}
+          series={[
+            {
+              data: formatData(data.data),
+            },
+          ]}
+          width={400}
+          height={200}
         />
       )}
       {/* {chartType === "doughnut" && (
