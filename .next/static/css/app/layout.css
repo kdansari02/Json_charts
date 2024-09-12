@@ -510,6 +510,9 @@ video {
 .fixed {
   position: fixed;
 }
+.sticky {
+  position: sticky;
+}
 .bottom-4 {
   bottom: 1rem;
 }
@@ -524,6 +527,9 @@ video {
 }
 .top-2 {
   top: 0.5rem;
+}
+.top-20 {
+  top: 5rem;
 }
 .z-40 {
   z-index: 40;
@@ -543,6 +549,9 @@ video {
 }
 .mb-4 {
   margin-bottom: 1rem;
+}
+.mb-6 {
+  margin-bottom: 1.5rem;
 }
 .mb-8 {
   margin-bottom: 2rem;
@@ -607,9 +616,6 @@ video {
 .w-full {
   width: 100%;
 }
-.w-64 {
-  width: 16rem;
-}
 .min-w-max {
   min-width: -moz-max-content;
   min-width: max-content;
@@ -655,14 +661,11 @@ video {
   margin-right: calc(1.5rem * var(--tw-space-x-reverse));
   margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
+.overflow-auto {
+  overflow: auto;
+}
 .overflow-x-auto {
   overflow-x: auto;
-}
-.overflow-y-auto {
-  overflow-y: auto;
-}
-.scroll-smooth {
-  scroll-behavior: smooth;
 }
 .whitespace-nowrap {
   white-space: nowrap;
@@ -728,14 +731,6 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-.bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
-}
-.bg-green-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
 }
 .fill-black {
   fill: #000;
@@ -825,17 +820,13 @@ video {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
 }
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-.text-orange-500 {
-  --tw-text-opacity: 1;
-  color: rgb(249 115 22 / var(--tw-text-opacity));
-}
 .text-orange-300 {
   --tw-text-opacity: 1;
   color: rgb(253 186 116 / var(--tw-text-opacity));
+}
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -873,13 +864,30 @@ video {
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+ 
 .backgroundHome {
   position: relative;
-  overflow: hidden;
-  height: 100vh; 
   width: 100%; 
 }
+
+/* .backgroundHome::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+.backgroundHome::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5); 
+  border-radius: 10px;
+  border: 3px solid transparent; 
+} */
 
 .backgroundHome::before {
   content: '';
@@ -995,4 +1003,4 @@ video {
     --tw-shadow-colored: 0 0 #0000;
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
-}
+} 
