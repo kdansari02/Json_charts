@@ -6,8 +6,9 @@ import { PiChartPolarDuotone } from "react-icons/pi";
 import ChartDisplay from "./ChartDisplay";
 import MUIChart from "./charts/MuiChart";
 import AGChart from "./charts/AgCharts";
-import RechartComponent from "./charts/RechartComponent";
 import D3Chart from "./charts/D3Chart";
+import img1 from "../assest/data-not-found.png";
+import Image from "next/image";
 
 const TabbedCharts = ({ data }) => {
   const [chartType, setChartType] = useState("bar");
@@ -94,7 +95,10 @@ const TabbedCharts = ({ data }) => {
             <D3Chart data={data} chartType={chartType} />
           </>
         ) : (
-          <p className="text-center text-white">No data uploaded yet.</p>
+          <div
+          >
+            <p className="text-center text-black"></p>
+          </div>
         )}
       </div>
     </div>

@@ -13,7 +13,6 @@ const ChartDisplay = ({ data, chartType }) => {
     if (data) {
       const ctx = chartRef.current.getContext("2d");
 
-      // Create gradient for the dataset fill color
       const gradient = ctx.createLinearGradient(0, 0, 0, 400);
       gradient.addColorStop(0, "rgba(255, 99, 132, 0.8)");
       gradient.addColorStop(0.5, "rgba(54, 162, 235, 0.8)");
@@ -25,13 +24,13 @@ const ChartDisplay = ({ data, chartType }) => {
           {
             label: data.label,
             data: data.data,
-            backgroundColor: gradient, // Apply gradient to the dataset
+            backgroundColor: gradient,
             borderColor: "rgba(0, 0, 0, 0.1)",
             borderWidth: 2,
-            width: 10, // Controls the width of the bars
-            height: 100, // Controls the height of the bars
-            borderRadius: 20, // Rounded corners for the bars
-            hoverBackgroundColor: gradient, // Optional: Add gradient on hover
+            width: 10, 
+            height: 100,
+            borderRadius: 20, 
+            hoverBackgroundColor: gradient, 
           },
         ],
       };
@@ -49,10 +48,10 @@ const ChartDisplay = ({ data, chartType }) => {
           plugins: {
             tooltip: {
               enabled: true,
-              cornerRadius: 10, // Rounded corners for tooltips (optional)
+              cornerRadius: 10, 
             },
           },
-          barThickness: 20, // Controls the thickness of the bars
+          barThickness: 20, 
         },
       });
     }
