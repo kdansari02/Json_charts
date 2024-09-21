@@ -27,10 +27,10 @@ const ChartDisplay = ({ data, chartType }) => {
             backgroundColor: gradient,
             borderColor: "rgba(0, 0, 0, 0.1)",
             borderWidth: 2,
-            width: 10, 
+            width: 10,
             height: 100,
-            borderRadius: 20, 
-            hoverBackgroundColor: gradient, 
+            borderRadius: 20,
+            hoverBackgroundColor: gradient,
           },
         ],
       };
@@ -48,10 +48,10 @@ const ChartDisplay = ({ data, chartType }) => {
           plugins: {
             tooltip: {
               enabled: true,
-              cornerRadius: 10, 
+              cornerRadius: 10,
             },
           },
-          barThickness: 20, 
+          barThickness: 20,
         },
       });
     }
