@@ -1,9 +1,32 @@
-import Index from "@/components/Index";
+"use client";
+
+// import { useState } from "react";
+import Header from "../components/Header";
+import Main from "../components/Main";
+// import Loader from "../components/Loader";
 
 export default function Home() {
+  // const [loading, setLoading] = useState(true);
+
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setLoading(false);
+  //   }, 2000);
+
+  //   return () => clearTimeout(timer);
+  // }, []);
+
   return (
-    <div className="bg-home flex flex-col min-h-screen">
-      <Index />
+    <div className="home flex flex-col min-h-screen">
+      <Header />
+      <Main />
+      {/* {loading ? (
+        <Loader />
+      ) : (
+        <>
+         
+        </>
+      )} */}
     </div>
   );
 }

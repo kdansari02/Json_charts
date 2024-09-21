@@ -7,8 +7,7 @@ import ChartDisplay from "./ChartDisplay";
 import MUIChart from "./charts/MuiChart";
 import AGChart from "./charts/AgCharts";
 import D3Chart from "./charts/D3Chart";
-import img1 from "../assest/data-not-found.png";
-import Image from "next/image";
+import ApexCharts from "./charts/ApexCharts";
 
 const TabbedCharts = ({ data }) => {
   const [chartType, setChartType] = useState("bar");
@@ -28,6 +27,17 @@ const TabbedCharts = ({ data }) => {
             <FaChartBar size={24} />
             <span>Bar Chart</span>
           </button>
+          {/* <button
+            onClick={() => setChartType("area")}
+            className={`flex flex-col items-center p-4 min-w-max ${
+              chartType === "area"
+                ? "text-blue-600 border-b-4 border-blue-500"
+                : "text-gray-600"
+            }`}
+          >
+            <FaChartBar size={24} />
+            <span>Area Chart</span>
+          </button> */}
           <button
             onClick={() => setChartType("pie")}
             className={`flex flex-col items-center p-4 min-w-max ${
@@ -93,10 +103,10 @@ const TabbedCharts = ({ data }) => {
             <MUIChart data={data} chartType={chartType} />
             <AGChart data={data} chartType={chartType} />
             <D3Chart data={data} chartType={chartType} />
+            {/* <ApexCharts data={data} chartType={chartType} /> */}
           </>
         ) : (
-          <div
-          >
+          <div>
             <p className="text-center text-black"></p>
           </div>
         )}
