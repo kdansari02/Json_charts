@@ -1,9 +1,6 @@
-// ProgressChart
-
 import React, { useEffect, useRef } from "react";
 import * as echarts from "echarts";
 
-// Data and Labels
 const dataAxis = ["Consolidated", "Stable", "Local", "Industry", "Laggers"];
 const topAxisLabels = [
   "Fragmented",
@@ -21,24 +18,21 @@ const bottomAxisLabels = [
 ];
 const dataValues = [6.6, 6.3, 5.7, 5, 5.3];
 
-// Helper function to determine the risk level
 const getRiskLevel = (value) => {
   if (value >= 7) return "High Risk";
   if (value >= 5) return "Medium Risk";
   return "Low Risk";
 };
 
-// Helper function to generate gradient colors based on risk level
 const getGradientColor = (value) => {
   if (value >= 7) {
-    return createGradient("#5e37ab", "#bb94e7");
+    return createGradient("#6930C3", "#5E60CE");  
   } else if (value >= 5) {
-    return createGradient("#895cb3", "#d1b3f1");
+    return createGradient("#7400B8", "#4EA8DE");  
   }
-  return createGradient("#b89fd9", "#e8d4ff");
+  return createGradient("#4CC9F0", "#90E0EF");   
 };
 
-// Function to create linear gradients
 const createGradient = (colorStart, colorEnd) => ({
   type: "linear",
   x: 0,
@@ -79,7 +73,6 @@ const ProgressChart = () => {
   );
 };
 
-// Function to generate chart options
 const getChartOptions = () => ({
   tooltip: {
     trigger: "axis",
@@ -94,7 +87,6 @@ const getChartOptions = () => ({
   series: getSeriesOptions(),
 });
 
-// Helper function for X-Axis options
 const getXAxisOptions = () => [
   {
     data: dataAxis,
@@ -136,7 +128,6 @@ const getXAxisOptions = () => [
   },
 ];
 
-// Helper function for Y-Axis options
 const getYAxisOptions = () => [
   {
     min: 0,
@@ -174,7 +165,6 @@ const getYAxisOptions = () => [
   },
 ];
 
-// Helper function to generate Y-Axis labels
 const getYAxisLabel = (value) => {
   if (value === 10)
     return `{riskLabel|High Risk}\n{innovationLabel|Strong need for \n innovation}`;
@@ -184,7 +174,6 @@ const getYAxisLabel = (value) => {
     return `{riskLabel|Low Risk}\n{innovationLabel|Low need for \n innovation}`;
 };
 
-// Helper function for series options
 const getSeriesOptions = () => [
   {
     type: "bar",
