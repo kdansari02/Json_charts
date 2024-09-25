@@ -7,7 +7,6 @@ import ChartDisplay from "./ChartDisplay";
 import MUIChart from "./charts/MuiChart";
 import AGChart from "./charts/AgCharts";
 import D3Chart from "./charts/D3Chart";
-import ApexCharts from "./charts/ApexCharts";
 
 const TabbedCharts = ({ data }) => {
   const [chartType, setChartType] = useState("bar");
@@ -27,23 +26,78 @@ const TabbedCharts = ({ data }) => {
             <FaChartBar size={24} />
             <span>Bar Chart</span>
           </button>
-
-          <div className="grid  grid-cols-1 md:grid-cols-2 gap-2 mt-10">
-            {data ? (
-              <>
-                <ChartDisplay chartType={chartType} />
-                <MUIChart data={data} chartType={chartType} />
-                <AGChart data={data} chartType={chartType} />
-                <D3Chart data={data} chartType={chartType} />
-                {/* <ApexCharts data={data} chartType={chartType} /> */}
-              </>
-            ) : (
-              <div>
-                <p className="text-center text-black"></p>
-              </div>
-            )}
-          </div>
+          <button
+            onClick={() => setChartType("pie")}
+            className={`flex flex-col items-center p-4 min-w-max ${
+              chartType === "pie"
+                ? "text-blue-600 border-b-4 border-blue-500"
+                : "text-gray-600"
+            }`}
+          >
+            <FaChartPie size={24} />
+            <span>Pie Chart</span>
+          </button>
+          <button
+            onClick={() => setChartType("line")}
+            className={`flex flex-col items-center p-4 min-w-max ${
+              chartType === "line"
+                ? "text-blue-600 border-b-4 border-blue-500"
+                : "text-gray-600"
+            }`}
+          >
+            <FaChartLine size={24} />
+            <span>Line Chart</span>
+          </button>
+          <button
+            onClick={() => setChartType("doughnut")}
+            className={`flex flex-col items-center p-4 min-w-max ${
+              chartType === "doughnut"
+                ? "text-blue-600 border-b-4 border-blue-500"
+                : "text-gray-600"
+            }`}
+          >
+            <BiDoughnutChart size={24} />
+            <span>Doughnut Chart</span>
+          </button>
+          <button
+            onClick={() => setChartType("polarArea")}
+            className={`flex flex-col items-center p-4 min-w-max ${
+              chartType === "polarArea"
+                ? "text-blue-600 border-b-4 border-blue-500"
+                : "text-gray-600"
+            }`}
+          >
+            <PiChartPolarDuotone size={24} />
+            <span>Polar Area</span>
+          </button>
+          <button
+            onClick={() => setChartType("radar")}
+            className={`flex flex-col items-center p-4 min-w-max ${
+              chartType === "radar"
+                ? "text-blue-600 border-b-4 border-blue-500"
+                : "text-gray-600"
+            }`}
+          >
+            <GiRadarSweep size={24} />
+            <span>Radar</span>
+          </button>
         </div>
+      </div>
+
+      <div className="grid  grid-cols-1 md:grid-cols-2 gap-2 mt-10">
+        {data ? (
+          <>
+            <ChartDisplay data={data} chartType={chartType} />
+            <MUIChart data={data} chartType={chartType} />
+            <AGChart data={data} chartType={chartType} />
+            <D3Chart data={data} chartType={chartType} />
+            {/* <ApexCharts data={data} chartType={chartType} /> */}
+          </>
+        ) : (
+          <div>
+            <p className="text-center text-black"></p>
+          </div>
+        )}
       </div>
     </div>
   );

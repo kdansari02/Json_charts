@@ -9,7 +9,7 @@ import Example from "../app/Example";
 import LineCharts from "@/app/LineChart";
 import GrowthChart from "@/app/GrowthChart";
 import ProgressBarChart from "@/app/ProgressChart";
-import ChartDisplay from "./ChartDisplay";
+import ProgressChart from "@/app/ProgressChart";
 
 const Main = () => {
   const [data, setData] = useState(null);
@@ -59,7 +59,6 @@ const Main = () => {
           </div>
           <div className="flex flex-col items-center md:items-start">
             <UploadSection
-            
               onFileUpload={setData}
               chartType={chartType}
               setChartType={setChartType}
@@ -82,11 +81,11 @@ const Main = () => {
         <div>
           <ChartInfoSection />
         </div>
-        <div className="space-y-3">
-          <ChartDisplay chartType={"bar"} />
+        <div>
+          <Example />
           <LineCharts />
           <GrowthChart />
-          <ProgressBarChart />
+          <ProgressChart />
         </div>
       </div>
 
