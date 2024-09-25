@@ -9,6 +9,7 @@ import Example from "../app/Example";
 import LineCharts from "@/app/LineChart";
 import GrowthChart from "@/app/GrowthChart";
 import ProgressBarChart from "@/app/ProgressChart";
+// import NpmTesting from "@/app/NpmTesting";
 
 const Main = () => {
   const [data, setData] = useState(null);
@@ -82,9 +83,10 @@ const Main = () => {
         </div>
         <div>
           <Example />
-          <LineCharts/>
-          <GrowthChart/>
-          <ProgressBarChart/>
+          <LineCharts />
+          <GrowthChart />
+          <ProgressBarChart />
+          {/* <NpmTesting /> */}
         </div>
       </div>
 
