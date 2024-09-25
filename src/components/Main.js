@@ -9,6 +9,7 @@ import Example from "../app/Example";
 import LineCharts from "@/app/LineChart";
 import GrowthChart from "@/app/GrowthChart";
 import ProgressBarChart from "@/app/ProgressChart";
+import ProgressChart from "@/app/ProgressChart";
 // import NpmTesting from "@/app/NpmTesting";
 
 const Main = () => {
@@ -85,8 +86,7 @@ const Main = () => {
           <Example />
           <LineCharts />
           <GrowthChart />
-          <ProgressBarChart />
-          {/* <NpmTesting /> */}
+          <ProgressChart />
         </div>
       </div>
 

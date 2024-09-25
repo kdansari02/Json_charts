@@ -1,97 +1,215 @@
-import { useRef, useEffect } from "react";
-import Chart from "chart.js/auto";
+// ProgressChart
 
-const ProgressBarChart = () => {
+import React, { useEffect, useRef } from "react";
+import * as echarts from "echarts";
+
+// Data and Labels
+const dataAxis = ["Consolidated", "Stable", "Local", "Industry", "Laggers"];
+const topAxisLabels = [
+  "Fragmented",
+  "Volatile",
+  "Global",
+  "New players",
+  "Early adopters",
+];
+const bottomAxisLabels = [
+  "Market maturity",
+  "Market situation",
+  "Competitors",
+  "Competition",
+  "Customers",
+];
+const dataValues = [6.6, 6.3, 5.7, 5, 5.3];
+
+// Helper function to determine the risk level
+const getRiskLevel = (value) => {
+  if (value >= 7) return "High Risk";
+  if (value >= 5) return "Medium Risk";
+  return "Low Risk";
+};
+
+// Helper function to generate gradient colors based on risk level
+const getGradientColor = (value) => {
+  if (value >= 7) {
+    return createGradient("#5e37ab", "#bb94e7");
+  } else if (value >= 5) {
+    return createGradient("#895cb3", "#d1b3f1");
+  }
+  return createGradient("#b89fd9", "#e8d4ff");
+};
+
+// Function to create linear gradients
+const createGradient = (colorStart, colorEnd) => ({
+  type: "linear",
+  x: 0,
+  y: 0,
+  x2: 0,
+  y2: 1,
+  colorStops: [
+    { offset: 0, color: colorStart },
+    { offset: 1, color: colorEnd },
+  ],
+});
+
+const ProgressChart = () => {
   const chartRef = useRef(null);
-  const chartInstanceRef = useRef(null);
-
-  const chartData = {
-    type: "bar",
-    data: {
-      labels: ["Fragmented", "Volatile", "Global", "New players", "Early adopters"],
-      datasets: [
-        {
-          label: "Risk Level",
-          data: [6.6, 6.3, 5.7, 5, 5.3],
-          backgroundColor: function (context) {
-            const chart = context.chart;
-            const { ctx, chartArea } = chart;
-
-            if (!chartArea) {
-              return;
-            }
-
-            // Create gradient fill for the bars
-            const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
-            gradient.addColorStop(0, '#3B0D7C'); // Dark purple at the bottom
-            gradient.addColorStop(1, '#D1B3F0'); // Light purple at the top
-
-            return gradient;
-          },
-          borderRadius: 10, // Rounded corners for the bars
-          borderSkipped: false, // Ensures no sharp corners
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      indexAxis: "x", // This makes the bars vertical
-      scales: {
-        y: {
-          beginAtZero: true,
-          min: 1,
-          max: 10,
-          ticks: {
-            stepSize: 1,
-            callback: function (value) {
-              return value; // Display numeric values without suffix
-            },
-          },
-        },
-      },
-      plugins: {
-        legend: {
-          display: false, // Hide the legend
-        },
-        tooltip: {
-          enabled: true, // Enable tooltips on hover
-        },
-        datalabels: {
-          anchor: "end",
-          align: "end",
-          color: "#fff", // White color for data labels on top of bars
-          font: {
-            weight: "bold",
-          },
-          formatter: function (value) {
-            return value; // Display value at the top of each bar
-          },
-        },
-      },
-    },
-  };
 
   useEffect(() => {
-    // Clean up previous chart instances
-    if (chartInstanceRef.current) {
-      chartInstanceRef.current.destroy();
-    }
+    const chartInstance = echarts.init(chartRef.current);
+    chartInstance.setOption(getChartOptions());
 
-    const ctx = chartRef.current.getContext("2d");
-    chartInstanceRef.current = new Chart(ctx, chartData);
+    const handleResize = () => chartInstance.resize();
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      if (chartInstanceRef.current) {
-        chartInstanceRef.current.destroy();
-      }
+      chartInstance.dispose();
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return (
-    <div className="bg-[#E3D1F7] p-6 rounded-lg shadow-lg border border-gray-200">
-      <canvas ref={chartRef} />
+    <div className="bg-[#d7aefd] mx-auto py-6">
+      <div className="w-full overflow-x-auto">
+        <div
+          className="min-w-[800px] md:min-w-full h-[75vh] m-auto"
+          ref={chartRef}
+        ></div>
+      </div>
     </div>
   );
 };
 
-export default ProgressBarChart;
+// Function to generate chart options
+const getChartOptions = () => ({
+  tooltip: {
+    trigger: "axis",
+    axisPointer: { type: "shadow" },
+    formatter: (params) => {
+      const value = params[0].value;
+      return `Value: ${value}<br/>Risk Level: ${getRiskLevel(value)}`;
+    },
+  },
+  xAxis: getXAxisOptions(),
+  yAxis: getYAxisOptions(),
+  series: getSeriesOptions(),
+});
+
+// Helper function for X-Axis options
+const getXAxisOptions = () => [
+  {
+    data: dataAxis,
+    axisLabel: {
+      outside: true,
+      color: "#3a0c78",
+      fontSize: "12px",
+      fontFamily: "Poppins",
+      fontWeight: "500",
+    },
+    axisTick: { show: false },
+    axisLine: { show: false },
+  },
+  {
+    data: topAxisLabels,
+    position: "top",
+    axisLabel: {
+      color: "#3a0c78",
+      fontSize: "12px",
+      fontWeight: "500",
+      fontFamily: "Poppins",
+      margin: 10,
+    },
+    axisTick: { show: false },
+    axisLine: { show: false },
+  },
+  {
+    data: bottomAxisLabels,
+    position: "bottom",
+    axisLabel: {
+      fontFamily: "Poppins",
+      color: "#3a0c78",
+      fontSize: "14px",
+      fontWeight: "600",
+      margin: 40,
+    },
+    axisTick: { show: false },
+    axisLine: { show: false },
+  },
+];
+
+// Helper function for Y-Axis options
+const getYAxisOptions = () => [
+  {
+    min: 0,
+    max: 10,
+    axisLine: { show: false },
+    axisTick: { show: false },
+    axisLabel: { color: "#3a0c78" },
+    splitLine: { lineStyle: { color: "#00000019" } },
+  },
+  {
+    type: "value",
+    position: "right",
+    min: 1,
+    max: 10,
+    axisLabel: {
+      show: true,
+      formatter: (value) => getYAxisLabel(value),
+      rich: {
+        riskLabel: {
+          color: "#3a0c78",
+          fontWeight: "bold",
+          fontSize: 12,
+          fontFamily: "Poppins",
+        },
+        innovationLabel: {
+          color: "#7a49ab",
+          fontSize: 10,
+          fontFamily: "Poppins",
+        },
+      },
+    },
+    axisLine: { show: false },
+    axisTick: { show: false },
+    splitLine: { show: false },
+  },
+];
+
+// Helper function to generate Y-Axis labels
+const getYAxisLabel = (value) => {
+  if (value === 10)
+    return `{riskLabel|High Risk}\n{innovationLabel|Strong need for \n innovation}`;
+  if (value === 5)
+    return `{riskLabel|Medium Risk}\n{innovationLabel|Need for \n innovation}`;
+  if (value === 1)
+    return `{riskLabel|Low Risk}\n{innovationLabel|Low need for \n innovation}`;
+};
+
+// Helper function for series options
+const getSeriesOptions = () => [
+  {
+    type: "bar",
+    showBackground: true,
+    backgroundStyle: { color: "#bb94e7", borderRadius: [50, 50, 50, 50] },
+    itemStyle: {
+      color: (params) => getGradientColor(params.value),
+      borderRadius: [50, 50, 50, 50],
+      barWidth: 10,
+    },
+    barCategoryGap: "80%",
+    data: dataValues,
+    label: {
+      show: true,
+      position: "top",
+      color: "#3a0c78",
+      fontWeight: "bold",
+      fontFamily: "Poppins",
+      distance: 40,
+    },
+    emphasis: { itemStyle: { color: "#5e37ab" } },
+    animation: true,
+    animationDuration: 5000,
+    animationEasing: "elasticOut",
+  },
+];
+
+export default ProgressChart;
